@@ -1,0 +1,5 @@
+###
+POST http://localhost:3000/todos/
+
+###
+PUT http://localhost:3000/todos/2/?todo="LOW"
