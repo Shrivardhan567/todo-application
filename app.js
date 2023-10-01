@@ -133,8 +133,8 @@ const todoQuery = (requestQuery) => {
 
 app.put("/todos/:todoId/", async (request, response) => {
   const { todoId } = request.params;
-  const { priority, todo, status } = request.query;
-  if (statusQuery(request.query)) {
+  const { priority, todo, status } = request.body;
+  if (statusQuery(request.body)) {
     const putStatusQuery = `
         UPDATE todo
         SET 
@@ -144,7 +144,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     response.send("Status Updated");
   }
 
-  if (priorityQuery(request.query)) {
+  if (priorityQuery(request.body)) {
     const putPriorityQuery = `
         UPDATE todo
         SET 
@@ -154,7 +154,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     response.send("Priority Updated");
   }
 
-  if (todoQuery(request.query)) {
+  if (todoQuery(request.body)) {
     const putTodoQuery = `
         UPDATE todo
         SET 
